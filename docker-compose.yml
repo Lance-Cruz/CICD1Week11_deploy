@@ -1,0 +1,21 @@
+services:
+  greeting-service:
+    image: ghcr.io/lance-cruz/cicd1week11_greeting/app:latest
+    env_file: ./.env
+    ports:
+      - "8081:8081"
+    networks:
+      - labnet
+
+  proxy-service:
+    image: ghcr.io/lance-cruz/cicd1week11_proxy/app:latest
+    env_file: ./.env
+    depends_on:
+      - cicd1week11_greeting
+    ports:
+      - "8080:8080"
+    networks:
+      - labnet
+
+networks:
+  labnet:
