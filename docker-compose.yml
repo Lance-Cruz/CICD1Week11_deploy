@@ -11,7 +11,7 @@ services:
     image: ghcr.io/lance-cruz/cicd1week11_proxy/app:latest
     env_file: ./.env
     depends_on:
-      - cicd1week11_greeting
+      - greeting-service
     ports:
       - "8080:8080"
     networks:
